@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI 能力普及课前调研</title>
+    <meta
+      name="description"
+      content="面向制造业员工的 AI 能力普及与工作效率场景调研问卷"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-copy">
+        <p class="eyebrow">课前调研</p>
+        <h1>AI 能力普及与工作场景问卷</h1>
+        <p class="lede">
+          这份问卷用于了解大家的工作内容、日常痛点、AI 接触程度和课程期待，帮助后续讲座更贴近实际制造现场。
+        </p>
+      </div>
+      <div class="header-panel" aria-label="问卷摘要">
+        <div>
+          <span class="metric">3-5</span>
+          <span>分钟完成</span>
+        </div>
+        <div>
+          <span class="metric">0</span>
+          <span>涉密内容</span>
+        </div>
+        <div>
+          <span class="metric">3</span>
+          <span>类课程输入</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="notice" aria-labelledby="safety-title">
+        <h2 id="safety-title">填写前请注意</h2>
+        <p>
+          请不要填写涉密信息、具体型号、图纸参数、工艺参数、客户/供应商敏感信息或内部未公开数据。可以用“某零件”“某记录”“某设备问题”等方式概括描述。
+        </p>
+      </section>
+
+      <section class="form-shell" aria-labelledby="form-title">
+        <div class="form-intro">
+          <div>
+            <p class="eyebrow">Questionnaire</p>
+            <h2 id="form-title">帮助我们把课程讲到真正有用的地方</h2>
+          </div>
+          <div class="progress-wrap" aria-label="填写进度">
+            <span id="progressText">已完成 0%</span>
+            <div class="progress-track">
+              <span id="progressBar"></span>
+            </div>
+          </div>
+        </div>
+
+        <form
+          name="ai-readiness-survey"
+          method="POST"
+          action="/thank-you.html"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="ai-readiness-survey" />
+          <p class="hidden">
+            <label>请勿填写此项 <input name="bot-field" /></label>
+          </p>
+
+          <fieldset>
+            <legend>一、你的岗位与日常工作</legend>
+
+            <label class="field">
+              <span>你目前的主要岗位类型</span>
+              <select name="role_type" required>
+                <option value="">请选择</option>
+                <option>一线操作/装配/加工</option>
+                <option>工艺/技术/工程支持</option>
+                <option>质量检验/质量管理</option>
+                <option>设备维护/维修/保障</option>
+                <option>生产计划/调度/班组管理</option>
+                <option>仓储/物流/物料管理</option>
+                <option>综合管理/行政/培训</option>
+                <option>其他</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>日常使用电脑/办公软件的情况</span>
+              <select name="computer_use" required>
+                <option value="">请选择</option>
+                <option>很少使用</option>
+                <option>偶尔使用</option>
+                <option>每天都会用，主要是填表、查资料、写记录</option>
+                <option>每天大量使用，能熟练处理文档和表格</option>
+              </select>
+            </label>
+
+            <div class="choice-group">
+              <span class="question">你工作中经常处理哪些内容？可多选</span>
+              <label><input type="checkbox" name="materials[]" value="工艺/制度/标准类文件" /> 工艺/制度/标准类文件</label>
+              <label><input type="checkbox" name="materials[]" value="质量/生产/设备记录" /> 质量/生产/设备记录</label>
+              <label><input type="checkbox" name="materials[]" value="表格数据和统计汇总" /> 表格数据和统计汇总</label>
+              <label><input type="checkbox" name="materials[]" value="培训、考试或经验材料" /> 培训、考试或经验材料</label>
+              <label><input type="checkbox" name="materials[]" value="汇报、总结或会议材料" /> 汇报、总结或会议材料</label>
+              <label><input type="checkbox" name="materials[]" value="以上都很少接触" /> 以上都很少接触</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>二、AI 了解程度</legend>
+
+            <label class="field">
+              <span>你现在对 AI 的接触程度更接近哪一种？</span>
+              <select name="ai_experience" required>
+                <option value="">请选择</option>
+                <option>基本没用过，只是听说过</option>
+                <option>用过一两次，但不知道怎么用到工作里</option>
+                <option>偶尔会用 AI 查资料、写文字或处理图片</option>
+                <option>已经在个人工作中尝试使用</option>
+                <option>比较担心风险，暂时不太敢用</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>关于 AI，你最想弄明白或最担心的是什么？</span>
+              <textarea
+                name="ai_concerns"
+                rows="4"
+                placeholder="例如：到底能帮什么、怎么不泄密、结果准不准、不会提问、是否会影响岗位等"
+              ></textarea>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>三、最值得改进的工作场景</legend>
+
+            <div class="choice-group">
+              <span class="question">哪些事情让你觉得重复、耗时或容易出错？可多选</span>
+              <label><input type="checkbox" name="pain_points[]" value="查资料、看制度、理解复杂要求" /> 查资料、看制度、理解复杂要求</label>
+              <label><input type="checkbox" name="pain_points[]" value="写记录、总结、汇报或会议材料" /> 写记录、总结、汇报或会议材料</label>
+              <label><input type="checkbox" name="pain_points[]" value="表格汇总、分类、对比和统计" /> 表格汇总、分类、对比和统计</label>
+              <label><input type="checkbox" name="pain_points[]" value="质量、设备或生产问题复盘" /> 质量、设备或生产问题复盘</label>
+              <label><input type="checkbox" name="pain_points[]" value="培训新人、整理经验或制作题目" /> 培训新人、整理经验或制作题目</label>
+              <label><input type="checkbox" name="pain_points[]" value="暂时想不到明显场景" /> 暂时想不到明显场景</label>
+            </div>
+
+            <label class="field">
+              <span>请描述一个你希望 AI 帮忙的真实场景</span>
+              <textarea
+                name="use_case"
+                rows="5"
+                required
+                placeholder="不用写敏感细节。可以写：我经常需要把某类记录整理成汇报；或者需要从很多文件里找某类要求。"
+              ></textarea>
+            </label>
+          </fieldset>
+
+          <div class="submit-row">
+            <p>
+              提交前请再次确认：没有填写任何涉密、敏感或内部未公开的具体信息。
+            </p>
+            <button type="submit">提交问卷</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>AI 能力普及课前调研 · 面向制造业真实工作场景</p>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
