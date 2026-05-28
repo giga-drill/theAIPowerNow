@@ -34,5 +34,11 @@ function updateProgress() {
 if (form) {
   form.addEventListener("input", updateProgress);
   form.addEventListener("change", updateProgress);
+  if (location.hostname.endsWith("github.io")) {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      window.location.href = "./thank-you.html";
+    });
+  }
   updateProgress();
 }
